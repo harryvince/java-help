@@ -14,7 +14,7 @@ import javax.persistence.*;
 public class User {
     @Id
     @GeneratedValue
-    private Integer Id;
+    private long Id;
     private String Username;
     private String Password;
     
@@ -37,7 +37,7 @@ public class User {
         this.Password = Password;
     }
 
-    public Integer getId() {
+    public long getId() {
         return Id;
     }
 
