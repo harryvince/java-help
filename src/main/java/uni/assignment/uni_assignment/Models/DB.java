@@ -30,7 +30,9 @@ public final class DB extends Database {
         // Models migration
         DB db = new DB();
         db.getConnection();
+        // Add each model here
         migrate_model(db, User.class);
+        db.close();
     }
     
     private void migrate_model(DB client, Class<?> model) {
