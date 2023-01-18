@@ -25,4 +25,20 @@ public final class DB extends Database {
 
         return new HikariDataSource(config);
     }
+    
+    public void Setup() {
+        // Models migration
+        DB db = new DB();
+        db.getConnection();
+        migrate_model(db, User.class);
+    }
+    
+    private void migrate_model(DB client, Class<?> model) {
+        try {
+            client.createTable(model);
+        } catch (Exception error) {
+            System.out.println("This Model might have already been migrated"
+                    + "please find the error attached: " + error);
+        }
+    }
 }
