@@ -6,6 +6,7 @@ package uni.assignment.uni_assignment;
 
 import java.util.List;
 import uni.assignment.uni_assignment.Models.*;
+import uni.assignment.uni_assignment.Views.*;
 
 /**
  *
@@ -25,12 +26,14 @@ public class Uni_assignment {
         }
         
         User harry = new User();
-        harry.setUsername("harryvince");
-        harry.setPassword("SuperSecurePassword");
+        harry.setUsername("test");
+        harry.setPassword("test");
         db.insert(harry);
         List<User> users = db.where("password=?", "SuperSecurePassword").orderBy("password").results(User.class);
         dump("data=", users);
         System.out.println("Hello World!");
+        TestScreen screen1 = new TestScreen();
+        screen1.show();
     }
     
     public static void dump(String label, List<User> list) {
