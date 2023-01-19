@@ -5,11 +5,6 @@
 package uni.assignment.uni_assignment.Models;
 
 import com.dieselpoint.norm.Database;
-import com.j256.ormlite.dao.Dao;
-import com.j256.ormlite.dao.DaoManager;
-import com.j256.ormlite.jdbc.JdbcConnectionSource;
-import com.j256.ormlite.support.ConnectionSource;
-import com.j256.ormlite.table.TableUtils;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import java.sql.SQLException;
@@ -38,24 +33,6 @@ public final class DB extends Database {
         // Add each model here
         migrate_model(db, User.class);
         db.close();
-    }
-    
-    public void newSetup() throws Exception {
-        String databaseURL = "jdbc:sqlite:file.db";
-        ConnectionSource connectionSource = new JdbcConnectionSource(databaseURL);
-        Dao<User, String> userDao = DaoManager.createDao(connectionSource, User.class);
-        TableUtils.createTable(connectionSource, User.class);
-        
-        // Create a user
-        User user = new User();
-        user.setUsername("harry");
-        user.setPassword("SuperSecurePassword");
-        userDao.create(user);
-        
-        // Retrieve the user
-        User user2 = userDao.queryForId("0");
-        System.out.println("User: " + user2.getUsername());
-        connectionSource.close();
     }
     
     private void migrate_model(DB client, Class<?> model) {
