@@ -13,9 +13,10 @@ import javax.persistence.*;
 @Table(name = "Users")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Integer id;
+    
     private String username;
+    
     private String password;
     
     public User() {}
@@ -25,7 +26,7 @@ public class User {
         this.password = password;
     }
     
-    public void setId(Long Id) {
+    public void setId(Integer Id) {
         this.id = Id;
     }
 
@@ -37,7 +38,7 @@ public class User {
         this.password = Password;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 

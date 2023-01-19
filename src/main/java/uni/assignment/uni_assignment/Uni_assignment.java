@@ -29,7 +29,7 @@ public class Uni_assignment {
         harry.setUsername("test");
         harry.setPassword("test");
         db.insert(harry);
-        List<User> users = db.where("password=?", "SuperSecurePassword").orderBy("password").results(User.class);
+        List<User> users = db.where("password=?", "test").orderBy("password").results(User.class);
         dump("data=", users);
         System.out.println("Hello World!");
         TestScreen screen1 = new TestScreen();
@@ -39,7 +39,7 @@ public class Uni_assignment {
     public static void dump(String label, List<User> list) {
 		System.out.println(label);
 		for (User n : list) {
-			System.out.println(n.getId());
+			System.out.println(n.getId().toString());
 		}
 	}
 }
