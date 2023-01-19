@@ -39,7 +39,7 @@ public class Uni_assignment {
     public static void dump(String label, List<User> list) {
 		System.out.println(label);
 		for (User n : list) {
-			System.out.println(n.getUsername());
+			System.out.println(n.getId());
 		}
 	}
 }

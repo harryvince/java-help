@@ -13,39 +13,39 @@ import javax.persistence.*;
 @Table(name = "Users")
 public class User {
     @Id
-    @GeneratedValue
-    private long Id;
-    private String Username;
-    private String Password;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    private String username;
+    private String password;
     
     public User() {}
     
     public User(String username, String password) {
-        this.Username = username;
-        this.Password = password;
+        this.username = username;
+        this.password = password;
     }
     
-    public void setId(Integer Id) {
-        this.Id = Id;
+    public void setId(Long Id) {
+        this.id = Id;
     }
 
     public void setUsername(String Username) {
-        this.Username = Username;
+        this.username = Username;
     }
 
     public void setPassword(String Password) {
-        this.Password = Password;
+        this.password = Password;
     }
 
-    public long getId() {
-        return Id;
+    public Long getId() {
+        return id;
     }
 
     public String getUsername() {
-        return Username;
+        return username;
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 }
